@@ -12,7 +12,7 @@ COPY packages/scratch-gui/package.json packages/scratch-gui/
 COPY packages/scratch-vm/package.json packages/scratch-vm/
 COPY packages/scratch-blocks/package.json packages/scratch-blocks/
 
-RUN --network=host sh -c '\
+RUN sh -c '\
     for attempt in 1 2 3 4 5; do \
         npm ci --ignore-scripts && exit 0; \
         echo "npm ci attempt ${attempt} failed, retrying..."; \

@@ -1,0 +1,22 @@
+{
+  "name": "squeeze",
+  "version": "1.0.0",
+  "description": "Squeeze the blocks. Run real Python.",
+  "private": true,
+  "license": "GPL-3.0",
+  "engines": {
+    "node": ">=24"
+  },
+  "workspaces": [
+    "packages/scratch-gui",
+    "packages/scratch-vm",
+    "packages/scratch-blocks"
+  ],
+  "scripts": {
+    "start": "npm run start --workspace=scratch-gui",
+    "build": "npm run build --workspace=scratch-gui",
+    "download-pyodide": "bash scripts/download-pyodide.sh",
+    "docker:up": "bash scripts/docker-up.sh",
+    "postinstall": "echo 'Squeeze: if install failed on browser downloads, run: npm install --ignore-scripts'"
+  }
+}

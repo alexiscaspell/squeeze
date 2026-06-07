@@ -1,0 +1,8 @@
+node_modules/
+packages/*/node_modules/
+public/pyodide/
+packages/scratch-gui/build/
+packages/scratch-gui/dist/
+.env
+*.log
+.DS_Store

@@ -1,0 +1,68 @@
+.panel {
+    padding: 8px 12px;
+    background: #252526;
+    border-top: 1px solid #3572A5;
+    color: #d4d4d4;
+    font-size: 12px;
+}
+
+.title {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #3572A5;
+}
+
+.saveRow {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.input {
+    flex: 1;
+    background: #1e1e1e;
+    border: 1px solid #444;
+    color: #d4d4d4;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.saveBtn {
+    background: #3572A5;
+    color: white;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 120px;
+    overflow-y: auto;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 0;
+    border-bottom: 1px solid #333;
+}
+
+.loadBtn {
+    background: transparent;
+    border: none;
+    color: #9cdcfe;
+    cursor: pointer;
+    text-align: left;
+}
+
+.deleteBtn {
+    background: transparent;
+    border: none;
+    color: #f44336;
+    cursor: pointer;
+}

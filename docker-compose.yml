@@ -1,0 +1,11 @@
+services:
+  squeeze:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      network: host
+    ports:
+      - "3000:80"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production

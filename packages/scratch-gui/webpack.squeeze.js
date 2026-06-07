@@ -39,11 +39,13 @@ module.exports = {
                     },
                     {
                         from: path.join(brandingRoot, 'logo.png'),
-                        to: 'images/squeeze-logo.png'
+                        to: 'images/squeeze-logo.png',
+                        noErrorOnMissing: true
                     },
                     {
                         from: path.join(brandingRoot, 'logo.png'),
-                        to: 'images/apple-touch-icon.png'
+                        to: 'images/apple-touch-icon.png',
+                        noErrorOnMissing: true
                     }
                 ]
             })

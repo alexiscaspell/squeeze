@@ -1,4 +1,3 @@
-# syntax=docker/dockerfile:1.4
 FROM node:24-bookworm-slim AS builder
 
 WORKDIR /app
@@ -23,6 +22,7 @@ RUN sh -c '\
 COPY . .
 
 ENV NODE_ENV=production
+ENV NODE_OPTIONS=--max-old-space-size=4096
 RUN npm run build
 
 FROM nginx:alpine

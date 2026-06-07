@@ -1,6 +1,7 @@
 const defaultsDeep = require('lodash.defaultsdeep');
 const path = require('path');
 const webpack = require('webpack');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 // Plugins
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -185,7 +186,14 @@ module.exports = [
                 minChunks: 2,
                 minSize: 50000,
                 maxInitialRequests: 5
-            }
+            },
+            minimizer: process.env.NODE_ENV === 'production' ? [
+                new UglifyJsPlugin({
+                    cache: true,
+                    parallel: 2,
+                    sourceMap: false
+                })
+            ] : []
         },
         plugins: base.plugins.concat([
             new webpack.DefinePlugin({

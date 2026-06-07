@@ -72,7 +72,6 @@ Open **http://localhost:3000**
 Or manually:
 
 ```bash
-npm run build
 docker compose up -d --build
 ```
 

@@ -13,11 +13,6 @@ else
     echo "DOCKER_HUB_PERSONAL_TOKEN not set — using existing docker credentials (if any)."
 fi
 
-if [[ ! -f packages/scratch-gui/build/index.html ]]; then
-    echo "Production bundle not found — running npm run build..."
-    npm run build
-fi
-
 echo "Building Docker image and starting Squeeze..."
 docker compose up -d --build "$@"
 

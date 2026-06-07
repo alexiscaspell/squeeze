@@ -1,0 +1,7 @@
+# Packages a pre-built scratch-gui bundle (built on the CI runner).
+FROM nginx:alpine
+
+COPY packages/scratch-gui/build /usr/share/nginx/html
+COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80

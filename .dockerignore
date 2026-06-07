@@ -2,7 +2,6 @@
 .github
 node_modules
 **/node_modules
-packages/scratch-gui/build/
 packages/scratch-gui/dist/
 packages/scratch-vm/node_modules
 packages/scratch-blocks/node_modules

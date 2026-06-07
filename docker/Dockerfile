@@ -24,10 +24,8 @@ RUN sh -c '\
 COPY . .
 
 ENV NODE_ENV=production
-ENV CI=true
 ENV NODE_OPTIONS=--max-old-space-size=3072
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-RUN npm run build --workspace=scratch-gui 2>&1 | tee /tmp/build.log
+RUN npm run build --workspace=scratch-gui
 
 FROM nginx:alpine
 

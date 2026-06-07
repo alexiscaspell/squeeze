@@ -148,6 +148,18 @@ const base = {
     ]
 };
 
+// UglifyJsPlugin breaks on Node 17+ (OpenSSL 3). Apply Terser to every production config.
+if (process.env.NODE_ENV === 'production') {
+    base.optimization = {
+        minimizer: [
+            new TerserPlugin({
+                parallel: false,
+                extractComments: false
+            })
+        ]
+    };
+}
+
 if (!process.env.CI) {
     base.plugins.push(new webpack.ProgressPlugin());
 }
@@ -186,14 +198,7 @@ module.exports = [
                 minChunks: 2,
                 minSize: 50000,
                 maxInitialRequests: 5
-            },
-            // UglifyJsPlugin breaks on Node 17+ (OpenSSL 3); use Terser instead.
-            minimizer: process.env.NODE_ENV === 'production' ? [
-                new TerserPlugin({
-                    parallel: false,
-                    extractComments: false
-                })
-            ] : []
+            }
         },
         plugins: base.plugins.concat([
             new webpack.DefinePlugin({

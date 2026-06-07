@@ -190,7 +190,7 @@ module.exports = [
             // UglifyJsPlugin breaks on Node 17+ (OpenSSL 3); use Terser instead.
             minimizer: process.env.NODE_ENV === 'production' ? [
                 new TerserPlugin({
-                    parallel: 2,
+                    parallel: false,
                     extractComments: false
                 })
             ] : []

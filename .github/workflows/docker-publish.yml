@@ -38,7 +38,9 @@ jobs:
         env:
           NODE_ENV: production
           NODE_OPTIONS: --max-old-space-size=4096
-        run: npm run build --workspace=scratch-gui
+        run: |
+          npm run download-pyodide
+          npm run build --workspace=scratch-gui
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3

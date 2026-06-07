@@ -54,7 +54,9 @@ module.exports = {
     getDefinePluginValues () {
         return {
             'process.env.REACT_APP_PYODIDE_URL': JSON.stringify(
-                process.env.REACT_APP_PYODIDE_URL || 'https://cdn.jsdelivr.net/pyodide/v0.26.0/full/'
+                process.env.REACT_APP_PYODIDE_URL || (
+                    process.env.NODE_ENV === 'production' ? '/pyodide/' : 'https://cdn.jsdelivr.net/pyodide/v0.26.0/full/'
+                )
             )
         };
     }

@@ -3,7 +3,7 @@ FROM node:24-bookworm-slim AS builder
 WORKDIR /app
 
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends git ca-certificates \
+    && apt-get install -y --no-install-recommends git ca-certificates curl bzip2 \
     && rm -rf /var/lib/apt/lists/* \
     && git config --global url."https://github.com/".insteadOf "ssh://git@github.com/" \
     && git config --global url."https://github.com/".insteadOf "git@github.com:"
@@ -22,6 +22,8 @@ RUN sh -c '\
     exit 1'
 
 COPY . .
+
+RUN npm run download-pyodide
 
 ENV NODE_ENV=production
 ENV NODE_OPTIONS=--max-old-space-size=3072

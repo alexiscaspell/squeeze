@@ -18,9 +18,5 @@
     "download-pyodide": "bash scripts/download-pyodide.sh",
     "docker:up": "bash scripts/docker-up.sh",
     "postinstall": "echo 'Squeeze: if install failed on browser downloads, run: npm install --ignore-scripts'"
-  },
-  "overrides": {
-    "scratch-audio": "0.1.0-prerelease.20231221012053",
-    "scratch-render": "0.1.0-prerelease.20231220210403"
   }
 }

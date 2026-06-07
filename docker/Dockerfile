@@ -23,7 +23,7 @@ COPY . .
 
 ENV NODE_ENV=production
 ENV NODE_OPTIONS=--max-old-space-size=4096
-RUN npm run build
+RUN npm run build --workspace=scratch-gui -- --progress=false
 
 FROM nginx:alpine
 

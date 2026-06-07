@@ -1,7 +1,7 @@
 const defaultsDeep = require('lodash.defaultsdeep');
 const path = require('path');
 const webpack = require('webpack');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 // Plugins
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -187,11 +187,11 @@ module.exports = [
                 minSize: 50000,
                 maxInitialRequests: 5
             },
+            // UglifyJsPlugin breaks on Node 17+ (OpenSSL 3); use Terser instead.
             minimizer: process.env.NODE_ENV === 'production' ? [
-                new UglifyJsPlugin({
-                    cache: true,
+                new TerserPlugin({
                     parallel: 2,
-                    sourceMap: false
+                    extractComments: false
                 })
             ] : []
         },
